@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jundeli.sslz.order.dao.CommentDao" >
+  <resultMap id="BaseResultMap" type="com.jundeli.sslz.order.model.Comment" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="DCT_ID" property="dctId" jdbcType="BIGINT" />
+    <result column="GRADE" property="grade" jdbcType="REAL" />
+    <result column="COMMENT" property="comment" jdbcType="VARCHAR" />
+    <result column="CREATE_ID" property="createId" jdbcType="BIGINT" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="FIELD1" property="field1" jdbcType="VARCHAR" />
+    <result column="FIELD2" property="field2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DCT_ID, GRADE, COMMENT, CREATE_ID, CREATE_TIME, REMARK, FIELD1, FIELD2
+  </sql>
+ <!-- 获取医生评论列表-->
+  <select id="getCommentList" resultType="com.jundeli.sslz.order.dto.CommentDto" parameterType="java.lang.Long" >
+    select v1.*,v2.NAME
+    from v1_commment v1,v1_users v2
+    where  v1.CREATE_ID = v2.ID  and   v1.DCT_ID = #{dctId,jdbcType=BIGINT}
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from v1_commment
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from v1_commment
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jundeli.sslz.order.model.Comment" >
+    insert into v1_commment (ID, DCT_ID, GRADE, 
+      COMMENT, CREATE_ID, CREATE_TIME, 
+      REMARK, FIELD1, FIELD2
+      )
+    values (#{id,jdbcType=BIGINT}, #{dctId,jdbcType=BIGINT}, #{grade,jdbcType=REAL}, 
+      #{comment,jdbcType=VARCHAR}, #{createId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR}, #{field1,jdbcType=VARCHAR}, #{field2,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jundeli.sslz.order.model.Comment" >
+    insert into v1_commment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dctId != null" >
+        DCT_ID,
+      </if>
+      <if test="grade != null" >
+        GRADE,
+      </if>
+      <if test="comment != null" >
+        COMMENT,
+      </if>
+      <if test="createId != null" >
+        CREATE_ID,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="field1 != null" >
+        FIELD1,
+      </if>
+      <if test="field2 != null" >
+        FIELD2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dctId != null" >
+        #{dctId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=REAL},
+      </if>
+      <if test="comment != null" >
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null" >
+        #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null" >
+        #{field2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jundeli.sslz.order.model.Comment" >
+    update v1_commment
+    <set >
+      <if test="dctId != null" >
+        DCT_ID = #{dctId,jdbcType=BIGINT},
+      </if>
+      <if test="grade != null" >
+        GRADE = #{grade,jdbcType=REAL},
+      </if>
+      <if test="comment != null" >
+        COMMENT = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null" >
+        CREATE_ID = #{createId,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="field1 != null" >
+        FIELD1 = #{field1,jdbcType=VARCHAR},
+      </if>
+      <if test="field2 != null" >
+        FIELD2 = #{field2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jundeli.sslz.order.model.Comment" >
+    update v1_commment
+    set DCT_ID = #{dctId,jdbcType=BIGINT},
+      GRADE = #{grade,jdbcType=REAL},
+      COMMENT = #{comment,jdbcType=VARCHAR},
+      CREATE_ID = #{createId,jdbcType=BIGINT},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      FIELD1 = #{field1,jdbcType=VARCHAR},
+      FIELD2 = #{field2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
