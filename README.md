@@ -4,7 +4,7 @@
 #### 开发环境
 jdk:1.8，mysql:5.7,springboot:2.X,spring-cloud:Finchley.SR1
 
-* 圣手郎中项目代码
+* 挂号项目代码
 
 ####  sslz-spring-boot-parent
 * 项目依赖
