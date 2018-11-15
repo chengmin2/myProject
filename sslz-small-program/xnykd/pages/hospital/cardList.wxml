@@ -1,0 +1,12 @@
+<radio-group class="radio-group" bindchange="radioChange">
+  <label class="radio" wx:for="{{patientList}}" wx:key="index">
+    <view class="card">
+      <image src="{{item.gender == '男' ? '../../resources/icon/man.png' : '../../resources/icon/woman.png'}}" />
+      <view class="user">
+        <text>{{item.patientName}}</text>
+        <text class="num">就诊卡号: {{item.healthCardNo}}</text>
+      </view>
+      <radio value="{{item.healthCardNo}}" bindtap='radio' data-id="{{item.id}}" checked="{{item.checked}}" style='width:53rpx;height:53rpx; float: right;margin-right: 20rpx;' />
+    </view>
+  </label>
+</radio-group>

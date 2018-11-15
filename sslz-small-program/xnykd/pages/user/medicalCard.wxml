@@ -1,0 +1,24 @@
+<view class="container">
+  <view class="tr" bindtap="cardInfo"  wx:for="{{patientList}}" wx:key="key" wx:for-index="idx" data-id='{{idx}}'>
+    <view class="moto">
+      <image src="{{item.gender == '男' ? '../../resources/icon/man.png' : '../../resources/icon/woman.png'}}" />
+      <view class="user">
+        <text>{{item.patientName}} <text class="b_text" wx:if="{{item.isDefault == 1}}">(默认)</text></text>
+        <text class="b_text">就诊卡号: {{item.healthCardNo}}</text>
+      </view>
+    </view>
+    <view>
+      <icon class="fa fa-angle-right" />
+    </view>
+  </view>
+  <view class="tr">
+    <button size="default" type="primary" style="width: 80%;" bindtap="createCard" wx:if="{{patientList.length < 5}}">+ 添加就诊卡</button>
+    <button size="default" type="default" style="width: 80%;" wx:elif="{{patientList.length >= 5}}" disabled="true">+ 添加就诊卡</button>
+  </view>
+  <view class="tips" wx:if="{{patientList.length<=5 && patientList.length>0}}">
+    <text>温馨提示：一个账号最多能添加 5 张就诊卡。</text>
+  </view>
+  <view class="tips" style="margin-top:0px;" wx:elif="patientList.length == 0">
+    <text>温馨提示：当前无就诊卡，请先添加就诊卡</text>
+  </view>
+</view>

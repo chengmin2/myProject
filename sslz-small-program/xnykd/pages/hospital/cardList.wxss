@@ -1,0 +1,28 @@
+.card {
+  height: 107rpx;
+  width:730rpx;
+  background-color: white;
+  border-bottom: 1px solid rgb(214, 217, 216);
+  padding: 31rpx 20rpx;
+}
+
+.card image {
+  width: 107rpx;
+  height: 107rpx;
+  border-radius: 107rpx;
+  float: left;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+  height: 107rpx;
+  float: left;
+}
+
+.num {
+  font-size: 24rpx;
+  color: rgb(188, 190, 189);
+  margin-top: 22rpx;
+}

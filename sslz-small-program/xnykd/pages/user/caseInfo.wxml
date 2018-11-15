@@ -1,0 +1,59 @@
+<view class="rection">
+  <text>就诊人</text>
+  <view class="right">
+    <text>小明</text>
+  </view>
+</view>
+<view class="rection">
+  <text>就诊医院</text>
+  <view class="right">
+    <text>西南医科大中医院</text>
+  </view>
+</view>
+<view class="rection">
+  <text>科室</text>
+  <view class="right">
+    <text>消化内科</text>
+  </view>
+</view>
+<view class="rection">
+  <text>就诊医生</text>
+  <view class="right">
+    <text>赵何明</text>
+  </view>
+</view>
+<view class="rection">
+  <text>门诊时间</text>
+  <view class="right">
+    <text style='color:rgb(236, 105, 65);'>2018-09-19上午</text>
+  </view>
+</view>
+<view class="rection">
+  <text>门诊号</text>
+  <view class="right">
+    <text style='color:rgb(236, 105, 65);'>1号</text>
+  </view>
+</view>
+<view class="rection">
+  <text>挂号费用</text>
+  <view class="right">
+    <text>13元</text>
+  </view>
+</view>
+<view class="rection">
+  <text>支付方式</text>
+  <view class="right">
+    <text>微信支付</text>
+  </view>
+</view>
+<view class='bottom'>
+  <view style='margin:30rpx 0rpx 43rpx 20rpx;'>
+    <span style="font-size:32rpx;color:rgb(188, 190, 189);">疾病信息</span>
+  </view>
+  <view class="text" style='margin:0rpx 20rpx;border:1px solid rgb(188, 190, 189);border-radius: 20rpx;'>
+    <textarea maxlength="200" placeholder="请输入不少于5个字的描述" style="width:708rpx;height:230rpx;resize:none;font-size:28rpx; "></textarea>
+  </view>
+</view>
+<view class="button" bindtap='pay'>
+  <text>去支付</text>
+</view>

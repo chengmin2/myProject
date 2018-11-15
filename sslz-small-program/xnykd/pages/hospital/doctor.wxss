@@ -1,0 +1,97 @@
+.tab {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: white;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: row;
+}
+
+.rec {
+  width: 50%;
+  height: 49px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0px 5%;
+}
+
+.doctor {
+  height: 169rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 0rpx 20rpx;
+  border-bottom: 1px solid rgb(214, 217, 216);
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 29rpx;
+}
+
+.primary {
+  width: 143rpx;
+  height: 63rpx;
+  border-radius:30rpx;
+  background-color: rgb(25,163,203);
+  text-align: center;
+  float:right;
+  margin-right: 20rpx;
+}
+
+/* 模态框 */
+
+.frame {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  width: 100%;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.frame input {
+  margin-left: 30px;
+}
+
+/* time日期主体view */
+
+.time {
+  height: 52px;
+  background: #fafafa;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* time日期主体滚动view */
+
+.time_scroll {
+  white-space: nowrap;
+  width: 100%;
+  height: 50px;
+  line-height: 25px;
+}
+
+.scroll-view-item {
+  height: 50px;
+}
+
+/* 日期 */
+
+.scroll_item {
+  display: inline-block;
+  width: 80px;
+  height: 50px;
+}
+
+/* time_active选择状态 */
+
+.time_active {
+  /* color: #159de3;
+    border-bottom: 2px solid #159de3; */
+  color: #2bd5d5;
+  border-bottom: 2px solid #2bd5d5;
+}

@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 40rpx 20rpx;
+  border-top: 1px solid rgb(234, 234, 234);
+  border-bottom: 10px solid rgb(234, 234, 234);
+}
+
+.text {
+  margin-left: 40rpx;
+}
+
+.body {
+  padding: 0rpx 40rpx 0rpx 20rpx;
+}
+
+.title {
+  font-size: 32rpx;
+  margin-top: 28rpx;
+}
+
+.conts {
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+  color: rgb(188, 190, 189);
+  /*关键属性（必须有的）  */
+  display: -webkit-box;
+  /*规定子元素的排列方向 */
+  -webkit-box-orient: vertical;
+  /*限制文本显示的行数  */
+  -webkit-line-clamp: 4;
+  /*实现多余的文字隐藏并用省略号来代表被隐藏的文字  */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/*切换  */
+
+.state {
+  color: gray;
+  text-align: right;
+  font-size: 30rpx;
+}
+
+.hide {
+  display: -webkit-box;
+}
+
+.show {
+  display: block;
+}
+
+.foot {
+  margin-top: 70rpx;
+}
+
+.img {
+  height: 143rpx;
+  width: 143rpx;
+  float: left;
+  padding: 42rpx 15rpx 45rpx 15rpx;
+}
+
+.circle {
+  width: 124rpx;
+  height: 34rpx;
+  font-size: 20rpx;
+  color: rgb(56, 175, 210);
+  border: 1px solid rgb(56, 175, 210);
+  border-radius: 17rpx;
+  text-align: center;
+  line-height: 34rpx;
+  margin-top: -8rpx;
+  z-index: 9999;
+  background-color: white;
+}

@@ -1,0 +1,20 @@
+<view class='body' wx:for="{{allOrder}}" wx:key="key" wx:for-index="idx" data-id='{{idx}}' bindtap='toOrderInfo' >
+  <view class='card'>
+    <view class='title'>
+      <text style='color:#fc6e30;'>{{item.type}}</text>
+      <view class='right' style='color: gray;line-height: 24px;'>
+      <text>详情</text>
+      <icon class="fa fa-angle-right" />
+      </view>
+    </view>
+    <view class='up'>
+      <span style='color:gray;'>订单号：{{item.orderNum}}</span>
+      <view style='margin-left:253px;'>{{item.status}}</view>
+    </view>
+
+    <view class='down'>
+      <text style='color:gray;'>金额：{{item.price}}.00元</text>
+      <text style='color:#8a8a8a;font-size:16px;'>{{item.time}}</text>
+    </view>
+  </view>
+</view>

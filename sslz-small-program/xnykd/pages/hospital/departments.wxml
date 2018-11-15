@@ -1,0 +1,6 @@
+ <view class="dep_box">
+    <view class="dep" bindtap="toDoctor" wx:for="{{deps}}" wx:for-index="idx" wx:for-item="item" data-id="{{idx}}">
+      <text>{{item}}</text>
+      <icon class="fa fa-angle-right" />
+    </view>
+  </view>

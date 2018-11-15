@@ -1,0 +1,31 @@
+.rection {
+  width: 95%;
+  height: 40rpx;
+  line-height: 40rpx;
+  padding: 30rpx 20rpx;
+  background-color: white;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: row;
+  color: rgb(188, 190, 189);
+  border-bottom: 1px solid rgb(188, 190, 189);
+}
+
+.right {
+  flex: 1;
+  text-align: end;
+  color: rgb(91, 92, 92);
+}
+
+/* 提交按钮 */
+.button {
+  width: 675rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  font-size: 34rpx;
+  color: white;
+   background-color: rgb(25, 163, 203);
+  margin: 80rpx 40rpx 40rpx 40rpx;
+  border-radius:80rpx;
+  text-align: center;
+}

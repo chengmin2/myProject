@@ -1,0 +1,26 @@
+<!-- 模态框 -->
+<modal hidden="{{modalHidden}}" confirm-text="开始使用" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+  <view class='frame'>
+    <i class="fa fa-mobile" style="font-size:26px"></i>
+    <input type='number' placeholder="请输入手机号" auto-focus placeholder-style="color:#999999;" />
+  </view>
+  <view class='frame'>
+    <i class="fa fa-expeditedssl" style="font-size:18px"></i>
+    <input type='text' placeholder="请输入验证码" auto-focus placeholder-style="color:#999999;" />
+    <text style='color:green;width:90px;' bindtap="getCode">获取验证码</text>
+  </view>
+</modal>
+<view class='body'>
+  <view class='list' bindtap='toRegistOrder'>
+    <text>我的预约</text>
+    <icon class="fa fa-angle-right" />
+  </view>
+  <view class='list' bindtap='toOrder'>
+    <text>我的订单</text>
+    <icon class="fa fa-angle-right" />
+  </view>
+  <view class='list' bindtap='medicalCard'>
+    <text>我的就诊卡</text>
+    <icon class="fa fa-angle-right" />
+  </view>
+</view>

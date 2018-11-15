@@ -1,0 +1,178 @@
+<import src="/templates/order.wxml" />
+<view class="tab">
+  <view class="rec" wx:for="{{tabTitle}}" wx:key="key" wx:for-index="idx" style="border-bottom:1px solid {{tabColor[idx]}};color:{{tabColor[idx]=='#2BD5D5'?'#2BD5D5':black}}" bindtap='changeTab' data-index="{{idx}}">
+    <text>{{tabTitle[idx]}}</text>
+  </view>
+</view>
+<!-- 全部 -->
+<view class="content" wx:if="{{nowTab==0}}">
+  <view wx:if="{{allOrder.length==0}}">
+    <template is="{{isOrder}}" data="{{content:'您还没有下过单~'}}" />
+  </view>
+  <view class="order" wx:for="{{allOrder}}" wx:key="key" wx:for-index="idx">
+    <view class="top">
+      <text>{{item.time}}</text>
+      <view class="right">
+        <text>{{item.type}}</text>
+      </view>
+    </view>
+    <view class="list" bindtap='toOrderInfo' data-type='{{item.type}}'>
+      <image class="picture" src='{{item.headPortrait}}'></image>
+      <view class="card">
+        <view class='card-top'>
+          <text decode="nbsp">{{item.name}}&nbsp;&nbsp;</text>
+          <text style='font-size:14px;color:gray'>{{item.departments}}</text>
+        </view>
+        <text>{{item.hospital}}</text>
+        <text style='color:gray;font-size:16px;'>就诊人：{{item.patient}}</text>
+      </view>
+      <view class="price">
+        <view class="Top">
+          <text>{{item.price}}元</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="orderFooter">
+      <view class="button" wx:if="{{item.type=='待支付'}}">
+        <text>去支付</text>
+      </view>
+      <view class="orderFooter" wx:if="{{item.type=='待评价'}}">
+        <view class="button">
+          <text>去评价</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="prompt">
+    <text>没有更多了</text>
+  </view>
+</view>
+<!-- 已取消 -->
+<view class="content" wx:if="{{nowTab==1}}">
+  <view wx:if="{{allOrder.length==0}}">
+    <template is="{{isOrder}}" data="{{content:'当前没有已取消订单~'}}" />
+  </view>
+  <view class="order" wx:for="{{allOrder}}" wx:key="key" wx:for-index="idx">
+    <view class="top">
+      <text>{{item.time}}</text>
+      <view class="right">
+        <text>{{item.type}}</text>
+      </view>
+    </view>
+    <view class="list" bindtap='toOrderInfo' data-type='{{item.type}}'>
+      <image class="picture" src='{{item.headPortrait}}'></image>
+      <view class="card">
+        <view class='card-top'>
+          <text decode="nbsp">{{item.name}}&nbsp;&nbsp;</text>
+          <text style='font-size:14px;color:gray'>{{item.departments}}</text>
+        </view>
+        <text>{{item.hospital}}</text>
+        <text style='color:gray;font-size:16px;'>就诊人：{{item.patient}}</text>
+      </view>
+      <view class="price">
+        <view class="Top">
+          <text>{{item.price}}元</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="orderFooter">
+      <view class="button" wx:if="{{item.type=='待支付'}}">
+        <text>去支付</text>
+      </view>
+      <view class="orderFooter" wx:if="{{item.type=='待评价'}}">
+        <view class="button">
+          <text>去评价</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="prompt">
+    <text>没有更多了</text>
+  </view>
+</view>
+<!-- 已预约 -->
+<view class="content" wx:if="{{nowTab==2}}">
+  <view wx:if="{{allOrder.length==0}}">
+    <template is="{{isOrder}}" data="{{content:'当前没有已预约订单~'}}" />
+  </view>
+  <view class="order" wx:for="{{allOrder}}" wx:key="key" wx:for-index="idx">
+    <view class="top">
+      <text>{{item.time}}</text>
+      <view class="right">
+        <text>{{item.type}}</text>
+      </view>
+    </view>
+    <view class="list" bindtap='toOrderInfo' data-type='{{item.type}}'>
+      <image class="picture" src='{{item.headPortrait}}'></image>
+      <view class="card">
+        <view class='card-top'>
+          <text decode="nbsp">{{item.name}}&nbsp;&nbsp;</text>
+          <text style='font-size:14px;color:gray'>{{item.departments}}</text>
+        </view>
+        <text>{{item.hospital}}</text>
+        <text style='color:gray;font-size:16px;'>就诊人：{{item.patient}}</text>
+      </view>
+      <view class="price">
+        <view class="Top">
+          <text>{{item.price}}元</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="orderFooter">
+      <view class="button" wx:if="{{item.type=='待支付'}}">
+        <text>去支付</text>
+      </view>
+      <view class="orderFooter" wx:if="{{item.type=='待评价'}}">
+        <view class="button">
+          <text>去评价</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="prompt">
+    <text>没有更多了</text>
+  </view>
+</view>
+<!-- 待评价 -->
+<view class="content" wx:if="{{nowTab==3}}">
+  <view wx:if="{{allOrder.length==0}}">
+    <template is="{{isOrder}}" data="{{content:'当前没有待评价订单~'}}" />
+  </view>
+  <view class="order" wx:for="{{allOrder}}" wx:key="key" wx:for-index="idx">
+    <view class="top">
+      <text>{{item.time}}</text>
+      <view class="right">
+        <text>{{item.type}}</text>
+      </view>
+    </view>
+    <view class="list" bindtap='toOrderInfo' data-type='{{item.type}}'>
+      <image class="picture" src='{{item.headPortrait}}'></image>
+      <view class="card">
+        <view class='card-top'>
+          <text decode="nbsp">{{item.name}}&nbsp;&nbsp;</text>
+          <text style='font-size:14px;color:gray'>{{item.departments}}</text>
+        </view>
+        <text>{{item.hospital}}</text>
+        <text style='color:gray;font-size:16px;'>就诊人：{{item.patient}}</text>
+      </view>
+      <view class="price">
+        <view class="Top">
+          <text>{{item.price}}元</text>
+        </view>
+      </view>
+    </view>
+    <!-- <view class="orderFooter">
+      <view class="button" wx:if="{{item.type=='待支付'}}">
+        <text>去支付</text>
+      </view>
+      <view class="orderFooter" wx:if="{{item.type=='待评价'}}">
+        <view class="button">
+          <text>去评价</text>
+        </view>
+      </view>
+    </view> -->
+  </view>
+  <view class="prompt">
+    <text>没有更多了</text>
+  </view>
+</view>

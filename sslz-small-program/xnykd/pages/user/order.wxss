@@ -1,0 +1,32 @@
+.body{
+  padding:10px 3%;
+
+}
+.card{
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+    padding: 5px 5%;
+}
+.title{
+  border-bottom: 1px solid #8a8a8a;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 40px;
+  line-height:30px;
+  align-items: center;
+}
+
+.up{
+  display: flex;
+  flex-direction:column;
+  height: 60px;
+  line-height:30px;
+}
+.down{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  height: 40px;
+  line-height:30px;
+}

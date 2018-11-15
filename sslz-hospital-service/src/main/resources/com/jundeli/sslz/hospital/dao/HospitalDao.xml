@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jundeli.sslz.hospital.dao.HospitalDao">
+    <resultMap type="com.jundeli.sslz.hospital.model.Hospital" id="hospitalInfoResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="rank" column="rank"/>
+        <result property="address" column="address"/>
+        <result property="bigintro" column="bigintro"/>
+        <result property="thuthumbnail" column="thuthumbnail"/>
+        <result property="tel" column="tel"/>
+        <result property="create_time" column="create_time"/>
+        <result property="remark" column="remark"/>
+        <result property="quantity" column="quantity"/>
+        <result property="latitude" column="latitude"/>
+        <result property="longitude" column="longitude"/>
+    </resultMap>
+    <resultMap type="HashMap" id="introduceResult">
+        <result property="name" column="name"/>
+        <result property="thuthumbnail" column="thuthumbnail"/>
+        <result property="bigintro" column="bigintro"/>
+    </resultMap>
+    <select id="allHospital" resultMap="hospitalInfoResult">
+        select id,
+               thuthumbnail,
+               name,
+               address,
+               rank,
+               quantity,
+               latitude,
+               longitude
+        from v1_hospital
+    </select>
+    <select id="allHospitalOrderByDesc" resultMap="hospitalInfoResult">
+        select id,
+               thuthumbnail,
+               name,
+               address,
+               rank,
+               quantity,
+               latitude,
+               longitude
+        from v1_hospital ORDER BY quantity DESC
+    </select>
+
+    <select id="hospitalIntroduce" parameterType="Integer" resultMap="introduceResult">
+        select name,thuthumbnail,bigintro from v1_hospital where id=#{id}
+    </select>
+
+    <select id="queryHospitalByName" parameterType="String" resultMap="hospitalInfoResult">
+        select id,
+               thuthumbnail,
+               name,
+               address,
+               rank,
+               quantity,
+               latitude,
+               longitude
+        from v1_hospital where name=#{name}
+    </select>
+
+    <delete id="deleteHospital" parameterType="Integer">
+      delete from v1_hospital where id=#{id}
+    </delete>
+    <insert id="insertHospital" parameterType="com.jundeli.sslz.hospital.model.Hospital">
+        insert into v1_hospital (name, address)
+        VALUE (#{name}, #{address})
+    </insert>
+    <update id="updateHospital" parameterType="com.jundeli.sslz.hospital.model.Hospital">
+        UPDATE v1_hospital
+        <trim prefix="set" suffixOverrides=",">
+            <if test="name!=null">name=#{name},</if>
+            <if test="rank!=null">rank=#{rank},</if>
+            <if test="address!=null">address=#{address},</if>
+            <if test="bigintro!=null">bigintro=#{bigintro},</if>
+            <if test="thuthumbnail!=null">thuthumbnail=#{thuthumbnail},</if>
+            <if test="tel!=null">tel=#{tel},</if>
+            <if test="create_time!=null">create_time=#{create_time},</if>
+            <if test="remark!=null">remark=#{remark},</if>
+            <if test="quantity!=null">quantity=#{quantity},</if>
+            <if test="latitude!=null">latitude=#{latitude},</if>
+            <if test="longitude!=null">longitude=#{longitude},</if>
+        </trim>
+        WHERE id=#{id}
+    </update>
+</mapper>

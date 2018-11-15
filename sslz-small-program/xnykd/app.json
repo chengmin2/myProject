@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/user/user",
+    "pages/switchcity/switchcity",
+    "pages/hospital/departments",
+    "pages/hospital/doctor",
+    "pages/hospital/doctorInfo",
+    "pages/user/caseInfo",
+    "pages/user/order",
+    "pages/user/orderInfo",
+    "pages/user/evaluation",
+    "pages/user/registOrder",
+    "pages/user/medicalCard",
+    "pages/user/createCard",
+    "pages/user/cardInfo",
+    "pages/user/details",
+    "pages/hospital/selectCard",
+    "pages/hospital/hospital_desc",
+    "pages/hospital/cardList",
+    "pages/user/pay"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "white",
+    "backgroundTextStyle": "light",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "rgb(33,184,99)",
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "position": "bottom",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "resources/tabbar/all.png",
+        "selectedIconPath": "resources/tabbar/all1.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人中心",
+        "iconPath": "resources/tabbar/account.png",
+        "selectedIconPath": "resources/tabbar/account1.png"
+      }
+    ]
+  }
+}

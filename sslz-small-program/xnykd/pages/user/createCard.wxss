@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 0px;
+}
+
+.flex {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  height: 120rpx;
+  border-bottom: 1px solid rgb(188, 190, 189);
+  align-items: center;
+}
+
+.flex view {
+  width: 3em;
+  text-align: center;
+  color: rgb(188, 190, 189);
+}
+
+.flex input {
+  width: 95%;
+  color: rgb(188, 190, 189);
+}
+
+.placeholder-class {
+  font-family: 微软雅黑;
+}

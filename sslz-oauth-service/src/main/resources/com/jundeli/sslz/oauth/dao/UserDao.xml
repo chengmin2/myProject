@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jundeli.sslz.oauth.dao.UserDao">
+
+    <!--普通用户登录 余秀良 2018年10月11日-->
+    <select id="generalUserLogin" resultType="com.jundeli.sslz.oauth.dto.UserDto"
+            parameterType="com.jundeli.sslz.oauth.dto.UserDto">
+        select
+        u.username, u.phone, u.id userId, ul.password, ul.account_status accountStatus, ul.verification_code
+        verificationCode, r.role_name roleName
+        from
+        user u,user_login ul,role r,user_role ur
+        where
+        u.id = ul.user_id and r.id = ur.role_id and ur.user_id = u.id and ul.account_status=0 and u.username =
+        #{username} and
+        <if test="password !=null">
+            ul.password = #{password}
+        </if>
+        <if test="verificationCode !=null">
+            ul.verification_code=#{verificationCode}
+        </if>
+    </select>
+    <!--查询用户信息 余秀良 2018年10月11日-->
+    <select id="selectUserInfo" parameterType="com.jundeli.sslz.oauth.dto.UserDto"
+            resultType="com.jundeli.sslz.oauth.dto.UserDto">
+        select
+        u.username,u.phone,u.id userId,ul.password,ul.account_status accountStatus,ul.verification_code
+        verificationCode,(group_concat(r.role_name SEPARATOR ',')) roleName
+        from
+        user u,user_login ul,role r,user_role ur
+        where
+        u.id = ul.user_id and r.id = ur.role_id and ur.user_id = u.id and ul.account_status = 0
+        and
+        <if test="username !=null">
+            u.username = #{username}
+        </if>
+        <if test="phone !=null">
+            u.phone = #{phone}
+        </if>
+    </select>
+</mapper>

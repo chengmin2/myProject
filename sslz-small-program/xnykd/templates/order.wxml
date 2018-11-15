@@ -1,0 +1,6 @@
+<template name="order">
+  <view style='width:100%;height:200px;display:flex;flex-direction:column;justify-content:center;align-items:center;margin-top:50px;'>
+    <image src='../../resources/icon/Order_empty.png' style='width:95px;height:95px;'></image>
+    <text style='font-size:14px;line-height:80px;color:#383838;'>{{content}}</text>
+  </view>
+</template>

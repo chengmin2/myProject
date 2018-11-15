@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jundeli.sslz.hospital.dao.DoctorDao">
+    <resultMap id="doctorResult" type="com.jundeli.sslz.hospital.model.Doctor">
+        <result column="id" property="id"/>
+        <result column="hpl_id" property="hplId"/>
+        <result column="dpt_id" property="dptId"/>
+        <result column="name" property="name"/>
+        <result column="head_portrait" property="headPortrait"/>
+        <result column="qualifications" property="qualifications"/>
+        <result column="bigintro" property="bigintro"/>
+        <result column="quantity" property="quantity"/>
+        <result column="score" property="score"/>
+        <result column="appointment_time" property="appointmentTime"/>
+        <result column="cost" property="cost"/>
+        <result column="create_time" property="createTime"/>
+        <result column="remark" property="remark"/>
+        <result column="field1" property="field1"/>
+        <result column="field2" property="field2"/>
+    </resultMap>
+    <!--查询医院科室下的所有医生-->
+    <select id="queryAllDoctor" parameterType="com.jundeli.sslz.hospital.model.Doctor" resultMap="doctorResult">
+      select d.id, d.head_portrait,d.name, d.qualifications,d.quantity,
+        d.bigintro,d.appointment_time
+        from v1_doctor d,v1_hospital h,v1_dpartments dp
+        where d.hpl_id = h.id
+          and d.dpt_id = dp.id
+          and h.id = #{hplId}
+          and dp.id = #{dptId}
+    </select>
+    <!--根据id查看医生资料-->
+    <select id="queryDoctorInfoById" parameterType="BigInteger"  resultType="java.util.Map">
+       select d.id, d.head_portrait,d.name, d.qualifications,d.quantity,
+        d.bigintro,d.appointment_time,h.name hospitalName,dp.name departmentName
+        from v1_doctor d,v1_hospital h,v1_dpartments dp
+        where d.hpl_id = h.id
+          and d.dpt_id = dp.id
+          and d.id = #{id}
+    </select>
+
+</mapper>

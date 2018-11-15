@@ -1,0 +1,63 @@
+.header {
+  width: 750rpx;
+  display: flex;
+  background-color: white;
+  padding: 19rpx 20rpx;
+}
+
+.city {
+  display: flex;
+  flex-direction: row;
+  color: rgb(91, 92, 92);
+  padding: 10rpx 0px;
+}
+
+.query {
+  margin-left: 30rpx;
+  width: 474rpx;
+  height: 79rpx;
+  background-color: rgb(242, 242, 243);
+  border-radius: 18px;
+  display: flex;
+  flex-direction: row;
+}
+
+.swiper {
+  color: white;
+  font-weight: bold;
+  background-color: white;
+}
+
+.tab {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  padding: 0.5rem 26rpx;
+  border-bottom: 1px solid rgb(214, 217, 216);
+  align-items: center;
+}
+
+.tab text {
+  font-size: 30rpx;
+}
+
+.tab-rection {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  padding: 28rpx 26rpx;
+  border-bottom: 1px solid rgb(214, 217, 216);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  margin-left: 40rpx;
+  width: 100%;
+}

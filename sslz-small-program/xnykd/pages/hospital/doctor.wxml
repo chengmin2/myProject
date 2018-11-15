@@ -1,0 +1,43 @@
+<view class="tab">
+  <view class="rec" wx:for="{{tabTitle}}" wx:for-index="idx" style="border-bottom:1px solid {{tabColor[idx]}};color:{{tabColor[idx]=='#21B863'?'#21B863':black}}" bindtap='changeTab' data-index="{{idx}}">
+    <text>{{tabTitle[idx]}}</text>
+  </view>
+</view>
+<view wx:if="{{nowTab==1}}">
+  <!-- 日期 -->
+  <view class="time">
+    <scroll-view class="time_scroll" scroll-x="true">
+      <view data-index="{{index}}" bindtap="timeClick" class="scroll_item {{currentTab==index?'time_active':''}}" wx:for="{{timeList}}" wx:key="{{index}}">
+        <view>{{item.name}}</view>
+        <view>{{item.date}}</view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+<!-- 医生 -->
+<view class='doctor' wx:for="{{doctorList}}" wx:for-index='idx' data-id='{{idx}}'>
+  <image src='{{item.doctor_img}}' style='height:125rpx;width:125rpx;border-radius:125rpx;'/>
+  <view class='right' style='height:130rpx;'>
+    <view class='up'>
+      <text style='font-size:34rpx;color:rgb(91,91,92);  float:left;'>{{item.doctor_name}}</text>
+      <view style='font-size:32rpx;margin-left:20rpx;margin-top:9rpx;float:left;'>{{item.doctor_title}}</view>
+      <view class='primary' bindtap="showModal">
+      <text style='font-size:30rpx;color:white;'>预约</text>
+      </view>
+    </view>
+    <text style='font-size:24rpx;color:rgb(188,190,189);'>预约量：{{item.doctor_yyl}}</text>
+    <text style='font-size:24rpx;color:rgb(188,190,189);margin-top:9rpx;overflow : hidden;    text-overflow: ellipsis;    display: -webkit-box;  -webkit-line-clamp: 1; -webkit-box-orient: vertical; word-break: break-all;'>擅长：{{item.doctor_goodAt}}</text> 
+  </view>
+</view>
+<!-- 模态框 -->
+<modal hidden="{{modalHidden}}" confirm-text="开始使用" cancel-text="取消" bindconfirm="modalBindaconfirm" bindcancel="modalBindcancel">
+  <view class='frame'>
+    <i class="fa fa-mobile" style="font-size:56rpx;color:#999999;"></i>
+    <input type='number' placeholder="请输入手机号" auto-focus placeholder-style="color:#999999;" />
+  </view>
+  <view class='frame'>
+    <icon class="fa fa-lock" style="font-size:38rpx;color:#999999;"/>
+    <input type='text' placeholder="请输入验证码" auto-focus placeholder-style="color:#999999;" />
+    <text style='color:#21B863;width:90px;' bindtap="getCode">获取验证码</text>
+  </view>
+</modal>

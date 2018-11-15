@@ -1,0 +1,48 @@
+<view class='header'>
+  <view class='city' bindtap='switchCity'>
+    <image src='../../resources/icon/address.png' style='width:30rpx;height:37.5rpx;' />
+    <text style='color:rgb(91,92,92);font-size:30rpx;padding-left:10rpx;'>{{city}}</text>
+  </view>
+  <view class="query">
+    <image src='../../resources/icon/search.png' style='height:0.8rem;width:0.8rem;margin-left:26rpx;margin-top:22rpx;' />
+    <input placeholder="请输入医院名称、科室、医生" style='width:100%;font-size:24rpx;margin-left:14rpx;color:rgb(171,167,167);margin-top:12rpx;' value="{{categoryName}}" bindconfirm='Search' />
+  </view>
+</view>
+<view class="swiper">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+    <block wx:for="{{imgUrls}}" wx:key="*this">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" style='width:750rpx;height:289rpx;' />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="tab">
+  <view class="tab-rection" bindtap='changeTab' data-index='0' style='color:{{tabColor[0]}}'>
+    <text>综合排序</text>
+    <view class="fa fa-sort-desc" style='margin-left:0.37rem;' />
+  </view>
+  <view class="tab-rection" bindtap='changeTab' data-index='1' style='color:{{tabColor[1]}}'>
+    <text>离我最近</text>
+    <view class="fa fa-map-marker" style='margin-left:0.37rem;' />
+  </view>
+  <view class="tab-rection" bindtap='changeTab' data-index='2' style='color:{{tabColor[2]}}'>
+    <text>预约量</text>
+    <view class="fa fa-clock-o" style='margin-left:0.37rem;' />
+  </view>
+</view>
+<view class='list' wx:for="{{hospitalList}}" data-hospitalid="{{item.hospital_id}}" wx:key="key" bindtap='departments'>
+  <view bindtap='hospital_desc'>
+    <image src="{{item.hospital_img}}" style='height:183rpx;width:159rpx;'></image>
+  </view>
+  <view class="text">
+    <text style='color:rgb(90,91,91);font-size:30rpx;margin-top:9rpx;'>{{item.hospital_name}}</text>
+    <text decode="nbsp" style='color:#808080;font-size:24rpx;margin-top:34rpx;'>{{item.hospital_address}}&nbsp;|&nbsp;{{item.hospital_level}}</text>
+    <view style='color:#808080;font-size:24rpx;display:flex;flex-direction:row;justify-content:space-between;margin-top:34rpx;'>预约量{{item.hospital_yyl}}
+      <view class='distance'>
+        <image src='../../resources/icon/distance2.png' style='width:0.42rem;height:0.53rem;' />
+        <text style='color:rgb(25,163,203);'>{{hospital_distance}}km</text>
+      </view>
+    </view>
+  </view>
+</view>

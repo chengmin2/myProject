@@ -1,0 +1,26 @@
+<view class='header'>
+  <image src="{{hospital.img}}" style='height:144rpx;width:165rpx;'></image>
+  <view class="text">
+    <text style='font-size:32rpx;margin-top:9rpx;'>{{hospital.name}}\n</text>
+    <text decode="nbsp" style='color:rgb(188,190,189);font-size:28rpx;margin-top:25rpx;'>{{hospital.level}}\n</text>
+    <text style='color:rgb(188,190,189);font-size:28rpx;margin-top:25rpx;'>预约量{{hospital.yyl}}
+    </text>
+  </view>
+</view>
+<view class='body'>
+  <view class='title'>医院简介</view>
+  <view class="conts {{isFolded?'hide':'show'}}">
+    {{hospital.desc}}
+  </view>
+  <view bindtap="change" class="state">{{isFolded?'︾':'︽'}}</view>
+  <view class='foot'>
+    <view class='title'>优秀医师</view>
+    <view class='img' wx:for="{{hospital.doctor}}" data-id="{{item.doctorId}}" wx:key="key" bindtap='doctorInfo'>
+      <image src='{{item.headPortrait}}' style='height:137rpx;width:137rpx;border-radius:137rpx;z-index: -1;' />
+      <view class='circle'>
+        <text style='margin-left:7rpx;'>医生简介</text>
+        <i class="fa fa-chevron-circle-right" style='margin-left:12rpx;'/>
+      </view>
+    </view>
+  </view>
+</view>

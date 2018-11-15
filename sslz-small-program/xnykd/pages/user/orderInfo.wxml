@@ -1,0 +1,63 @@
+<view class='table' style='display:flex;flex-direction:column'>
+  <view class="rection">
+    <text>订单状态</text>
+    <view class="right">
+      <text style='color:#ffb46c;'>已完成</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>订单编号</text>
+    <view class="right">
+      <text>6515154515135155354</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>下单时间</text>
+    <view class="right">
+      <text>2018-09-18 14：19：11</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>就诊医院</text>
+    <view class="right">
+      <text>西南医科大中医院</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>就诊科室</text>
+    <view class="right">
+      <text>消化内科</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>就诊医生</text>
+    <view class="right">
+      <text>赵何明</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>患者姓名</text>
+    <view class="right">
+      <text>小明</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>手机号码</text>
+    <view class="right">
+      <text>181*****302</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>支付费用</text>
+    <view class="right">
+      <text>13元</text>
+    </view>
+  </view>
+  <view class="rection">
+    <text>就诊日期</text>
+    <view class="right">
+      <text>2018-09-19 上午</text>
+    </view>
+  </view>
+
+</view>

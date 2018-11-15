@@ -1,0 +1,131 @@
+.tab {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: white;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+}
+
+.rec {
+  width: 15%;
+  height: 49px;
+  font-size: 16px;
+  text-align: center;
+  margin: 0px 5%;
+}
+
+.content {
+  padding-top:55px;
+  width: 100%;
+  font-family: 微软雅黑;
+  padding-bottom: 20px;
+}
+
+.order {
+  width: 95%;
+  padding: 10px 2.5%;
+  background-color: white;
+  margin-top: 5px;
+}
+
+.order .top {
+  width: 100%;
+  display: flex;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.order .right {
+  flex: 1;
+  height: 20px;
+  text-align: end;
+  color: #fc6868;
+}
+
+.list {
+  width: 100%;
+  padding: 10px 0px;
+  display: flex;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.picture {
+  width: 80px;
+  height: 80px;
+}
+
+.card {
+  flex: 1;
+  height: 80px;
+  margin-left: 10px;
+  line-height: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-top {
+  display: flex;
+  flex-direction: row;
+}
+
+.price {
+  width: 100px;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  text-align: end;
+}
+
+.Top {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  font-size: 12px;
+  flex-direction: column;
+}
+
+.Down {
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+}
+
+.rection {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  padding: 5px 0px;
+  text-align: end;
+  font-size: 14px;
+}
+
+.orderFooter {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.button {
+  margin-left: 10px;
+  width: 70px;
+  text-align: center;
+  border: 1px solid black;
+  font-size: 14px;
+}
+
+.prompt {
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+  color: gray;
+  margin-top: 10px;
+}

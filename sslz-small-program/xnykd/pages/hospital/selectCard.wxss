@@ -1,0 +1,46 @@
+.card {
+  width: 100%;
+  height: 114rpx;
+  line-height: 114rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgb(188, 190, 189);
+}
+
+.card  text {
+  margin-left: 20rpx;
+}
+
+.card icon {
+  font-size: 18px;
+  margin-right: 20px;
+  color: gray;
+  line-height: 24px;
+}
+
+.btns {
+  padding: 77rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+}
+
+.primary {
+  width: 675rpx;
+  height: 98rpx;
+  background-color: rgb(25, 163, 203);
+  text-align: center;
+  line-height: 98rpx;
+  border-radius: 49rpx;
+}
+
+.default {
+  width: 675rpx;
+  height: 98rpx;
+  background-color: rgb(235, 235, 235);
+  text-align: center;
+  line-height: 98rpx;
+  border-radius: 49rpx;
+  margin-top: 50rpx;
+}

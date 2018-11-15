@@ -1,0 +1,37 @@
+<view class="container">
+  <view class="head">
+    <image class="photo" src="{{patientInfo.userAvatarUrl}}" />
+  </view>
+  <view class="tr">
+    <text>姓名</text>
+    <text name="patientName">{{patientInfo.patientName}}</text>
+  </view>
+  <view class="tr">
+    <text>性别</text>
+    <text name="gender">{{patientInfo.gender}}</text>
+  </view>
+  <view class="tr">
+    <text>就诊卡号</text>
+    <text name="healthCardNo">{{patientInfo.healthCardNo}}</text>
+  </view>
+  <view class="tr">
+    <text>病人ID</text>
+    <text name="patientId">{{patientInfo.patientId}}</text>
+  </view>
+  <view class="tr">
+    <text>出生年月</text>
+    <text name="birthday">{{Util.subString(patientInfo.birthday, 0, 10)}}</text>
+  </view>
+  <view class="tr">
+    <text>身份证号</text>
+    <text name="idCardNo">{{patientInfo.idCardNo}}</text>
+  </view>
+  <view class="tr">
+    <text>手机号</text>
+    <text name="phone">{{patientInfo.phone}}</text>
+  </view>
+  <view class="btns">
+    <button size="default" type="primary" style="margin-bottom: 10px;" bindtap="setDefault" wx:if="{{patientInfo.isDefault == 0}}">设为默认</button>
+    <button size="default" type="default" bindtap="unBinding">解除绑定</button>
+  </view>
+</view>

@@ -1,0 +1,17 @@
+.rection {
+  width: 95%;
+  line-height: 20px;
+  padding: 10px 2.5%;
+  background-color: white;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  color: #4c4b4b;
+}
+
+.right {
+  flex: 1;
+  line-height: 20px;
+  margin-left: 50px;
+  color: black;
+}

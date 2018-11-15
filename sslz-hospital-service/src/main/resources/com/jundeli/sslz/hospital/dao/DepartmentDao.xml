@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jundeli.sslz.hospital.dao.DepartmentDao">
+    <resultMap type="com.jundeli.sslz.hospital.model.Dpartment" id="departmentResult">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="bigintro" column="bigintro"/>
+        <result property="createTime" column="createTime"/>
+        <result property="remark" column="remark"/>
+        <result property="field1" column="field1"/>
+        <result property="field2" column="field2"/>
+    </resultMap>
+    <!--通过医院名字查找科室-->
+    <select id="queryByHospitalName" parameterType="String" resultMap="departmentResult">
+  SELECT d.id,d.name
+  FROM v1_hospital h,v1_dpartments d,v1_hsl_dpt a
+  WHERE h.id=a.hpl_id AND d.id=a.dpt_id  AND h.name=#{name}
+    </select>
+    <!--添加科室-->
+    <insert id="insertDepartment" parameterType="com.jundeli.sslz.hospital.model.Dpartment" useGeneratedKeys="true"
+            keyProperty="id">
+        insert into v1_dpartments (name) values(#{name})
+    </insert>
+    <!--给医院添加科室-->
+    <insert id="insertHospitalDepartment" parameterType="com.jundeli.sslz.hospital.model.HospitalDpartment">
+        insert into v1_hsl_dpt (hpl_id,dpt_id) VALUE(#{hplId},#{dptId})
+    </insert>
+    <!--删除医院科室-->
+    <delete id="deleteHospitalDepartment" parameterType="com.jundeli.sslz.hospital.model.HospitalDpartment">
+    DELETE  a
+    FROM v1_hospital h,v1_dpartments d,v1_hsl_dpt a
+    WHERE h.id=a.hpl_id AND d.id=a.dpt_id  AND h.id=#{hplId} AND d.id=#{dptId}
+    </delete>
+</mapper>
