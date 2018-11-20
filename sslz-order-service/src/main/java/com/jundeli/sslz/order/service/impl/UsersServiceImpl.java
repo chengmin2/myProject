@@ -5,10 +5,11 @@ import com.jundeli.sslz.order.model.Users;
 import com.jundeli.sslz.order.service.UsersService;
 import com.jundeli.sslz.tool.protocol.ErrorProtocol;
 import com.jundeli.sslz.tool.protocol.ResultProtocol;
+import org.springframework.stereotype.Service;
 
 
 import javax.annotation.Resource;
-
+@Service(value = "usersService")
 public class UsersServiceImpl implements UsersService {
     @Resource
     UsersDao usersDao;

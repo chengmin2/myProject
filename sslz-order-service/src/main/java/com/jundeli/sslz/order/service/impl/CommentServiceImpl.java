@@ -5,9 +5,10 @@ import com.jundeli.sslz.order.model.Comment;
 import com.jundeli.sslz.order.service.CommentService;
 import com.jundeli.sslz.tool.protocol.ErrorProtocol;
 import com.jundeli.sslz.tool.protocol.ResultProtocol;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-
+@Service(value = "commentService")
 public class CommentServiceImpl implements CommentService {
     @Resource
     CommentDao commentDao;

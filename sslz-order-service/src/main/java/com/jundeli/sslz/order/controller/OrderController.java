@@ -22,7 +22,7 @@ import javax.annotation.Resource;
  * @date 2018年10月09日  下午1:36
  * @address: 四川成都
  */
-@RestController("order")
+@RestController
 public class OrderController {
     @Resource
     RegistrationRecordService registrationRecordService;

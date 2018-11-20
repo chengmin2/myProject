@@ -5,11 +5,12 @@ import com.jundeli.sslz.order.model.Orders;
 import com.jundeli.sslz.order.service.OrdersService;
 import com.jundeli.sslz.tool.protocol.ErrorProtocol;
 import com.jundeli.sslz.tool.protocol.ResultProtocol;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
 import java.util.List;
-
+@Service(value = "ordersService")
 public class OrdersServiceImpl implements OrdersService {
 
     @Resource
