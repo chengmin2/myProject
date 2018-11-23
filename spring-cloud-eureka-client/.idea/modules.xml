@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../spring-cloud-eureka-feign/eureka-feign.iml" filepath="$PROJECT_DIR$/../spring-cloud-eureka-feign/eureka-feign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-cloud-eureka-client.iml" filepath="$PROJECT_DIR$/spring-cloud-eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-cloud-eureka-service-ribbon/spring-cloud-eureka-service-ribbon.iml" filepath="$PROJECT_DIR$/../spring-cloud-eureka-service-ribbon/spring-cloud-eureka-service-ribbon.iml" />
+    </modules>
+  </component>
+</project>

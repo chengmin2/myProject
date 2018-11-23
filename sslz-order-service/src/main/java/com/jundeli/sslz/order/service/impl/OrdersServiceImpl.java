@@ -21,6 +21,8 @@ public class OrdersServiceImpl implements OrdersService {
             if(userId==0l){
                 return  ErrorProtocol.E_400;
             }
+
+            System.out.println("myName");
             List<Orders> ordersList = ordersDao.getOrdersByUserId(userId);
             return ResultProtocol.builder().code(200).success(true).message("返回数据").data(ordersList).build();
         } catch (Exception e) {

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jundeli.sslz.order.dao.RegistrationRecordDao" >
+  <resultMap id="BaseResultMap" type="com.jundeli.sslz.order.model.RegistrationRecord" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="DCT_ID" property="dctId" jdbcType="BIGINT" />
+    <result column="USER_ID" property="userId" jdbcType="BIGINT" />
+    <result column="NUMBERS" property="numbers" jdbcType="INTEGER" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="FILED1" property="filed1" jdbcType="VARCHAR" />
+    <result column="FILED2" property="filed2" jdbcType="VARCHAR" />
+    <result column="HSTL_ID" property="hstlId" jdbcType="BIGINT" />
+    <result column="DAT_ID" property="datId" jdbcType="BIGINT" />
+    <result column="MONEY" property="money" jdbcType="DECIMAL" />
+    <result column="OUTPATIENT_TIME" property="outpatientTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, DCT_ID, USER_ID, NUMBERS, CREATE_TIME, REMARK, FILED1, FILED2,HSTL_ID,DAT_ID,MONEY,OUTPATIENT_TIME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from v1_registration_record
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <!--通过用户Id查询挂号记录-->
+  <select id="getRegistrationList" resultType="com.jundeli.sslz.order.dto.RegistrationRecordDto" parameterType="java.lang.Long" >
+    select
+    v1.*,v2.NAME doctorName,V3.NAME dpartmentName,v4.Name hospitalName,v5.NAME userName
+    from v1_registration_record  v1,v1_doctor v2,v1_dpartments v3,v1_hospital v4,v1_users v5
+    where  v1.DCT_ID = v2.ID and v1.HSTL_ID = v4.ID and v1.DAT_ID = v3.ID and v1.USER_ID = v5.id
+    and v1.USER_ID = #{userId,jdbcType=BIGINT}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from v1_registration_record
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.jundeli.sslz.order.model.RegistrationRecord" >
+    insert into v1_registration_record (ID, DCT_ID, USER_ID, 
+      NUMBERS, CREATE_TIME, REMARK, 
+      FILED1, FILED2)
+    values (#{id,jdbcType=BIGINT}, #{dctId,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, 
+      #{numbers,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}, 
+      #{filed1,jdbcType=VARCHAR}, #{filed2,jdbcType=VARCHAR},#{hstlId,jdbcType=BIGINT},#{datId,jdbcType=BIGINT},
+      #{money,jdbcType=DECIMAL},#{outpatientTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.jundeli.sslz.order.model.RegistrationRecord" >
+    insert into v1_registration_record
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="dctId != null" >
+        DCT_ID,
+      </if>
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="numbers != null" >
+        NUMBERS,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="filed1 != null" >
+        FILED1,
+      </if>
+      <if test="filed2 != null" >
+        FILED2,
+      </if>
+      <if test="hstlId != null" >
+        HSTL_ID,
+      </if>
+      <if test="datId != null" >
+        DAT_ID,
+      </if>
+      <if test="money != null" >
+        MONEY,
+      </if>
+      <if test="outpatientTime != null" >
+        OUTPATIENT_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="dctId != null" >
+        #{dctId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="numbers != null" >
+        #{numbers,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="filed1 != null" >
+        #{filed1,jdbcType=VARCHAR},
+      </if>
+      <if test="filed2 != null" >
+        #{filed2,jdbcType=VARCHAR},
+      </if>
+      <if test="hstlId != null" >
+        #{hstlId,jdbcType=BIGINT},
+      </if>
+      <if test="datId != null" >
+        #{datId,jdbcType=BIGINT},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="outpatientTime != null" >
+        #{outpatientTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jundeli.sslz.order.model.RegistrationRecord" >
+    update v1_registration_record
+    <set >
+      <if test="dctId != null" >
+        DCT_ID = #{dctId,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null" >
+        USER_ID = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="numbers != null" >
+        NUMBERS = #{numbers,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="filed1 != null" >
+        FILED1 = #{filed1,jdbcType=VARCHAR},
+      </if>
+      <if test="filed2 != null" >
+        FILED2 = #{filed2,jdbcType=VARCHAR},
+      </if>
+      <if test="hstlId != null" >
+        #{hstlId,jdbcType=BIGINT},
+      </if>
+      <if test="datId != null" >
+        #{datId,jdbcType=BIGINT},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="outpatientTime != null" >
+        #{outpatientTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jundeli.sslz.order.model.RegistrationRecord" >
+    update v1_registration_record
+    set DCT_ID = #{dctId,jdbcType=BIGINT},
+      USER_ID = #{userId,jdbcType=BIGINT},
+      NUMBERS = #{numbers,jdbcType=INTEGER},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      FILED1 = #{filed1,jdbcType=VARCHAR},
+      FILED2 = #{filed2,jdbcType=VARCHAR},
+      HSTL_ID = #{hstlId,jdbcType=BIGINT},
+      DAT_ID = #{datId,jdbcType=BIGINT},
+       MONEY = #{money,jdbcType=DECIMAL},
+       OUTPATIENT_TIME = #{outpatientTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
